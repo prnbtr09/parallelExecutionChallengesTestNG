@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <parameter name="url" value="https://www.saucedemo.com/"/>
+    <test name="ParallelExecutionChallenges" parallel="methods" thread-count="2">
+        <classes>
+            <class name="testClasses.LoginTestSingleton"/>
+        </classes>
+    </test>
+</suite>
