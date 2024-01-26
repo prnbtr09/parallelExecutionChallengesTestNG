@@ -8,6 +8,7 @@ public class CreateDriver {
     private static CreateDriver INSTANCE;
 
     private WebDriver driver;
+    private ThreadLocal<WebDriver> webDriverThreadLocal=new ThreadLocal<>();
 
     private CreateDriver() {
 
@@ -22,11 +23,11 @@ public class CreateDriver {
 
     public void setDriver() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        webDriverThreadLocal.set(new ChromeDriver());
     }
 
     public WebDriver getDriver() {
-        return driver;
+        return webDriverThreadLocal.get();
     }
 
 
